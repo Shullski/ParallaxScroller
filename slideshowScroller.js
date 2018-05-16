@@ -54,7 +54,6 @@ function applyParallax(direction){
 function translateUp(element) {
   element.css('transform', 'translateY(' + (animateTranslate + currentTranslate) + '%)');
   currentTranslate = currentTranslate + animateTranslate;
-
 }
 
 function translateDown(element) {
@@ -93,18 +92,45 @@ $(document).ready(function(){
       atTop = isAtTop();
       atBottom = isAtBottom();
       //up arrow pressed
-        if(event.which == 38 && !atTop) {
-          translateUp(animationDiv);
-          applyParallax('up');
-          throttleAnimation();
-        }
-        //down arrow pressed
-        else if(event.which == 40 && !atBottom) {
-          translateDown(animationDiv);
-          applyParallax('down');
-          throttleAnimation();
-        }
+      if(event.which == 38 && !atTop) {
+        translateUp(animationDiv);
+        applyParallax('up');
+        throttleAnimation();
       }
+      //down arrow pressed
+      else if(event.which == 40 && !atBottom) {
+        translateDown(animationDiv);
+        applyParallax('down');
+        throttleAnimation();
+      }
+    }
+  });
+  //-----------------------------------------
+
+  //---------- MOBILE DEVICES ---------------
+  $('body').on('swipedown',function(){
+    if(animationEnabled) {
+      atTop = isAtTop();
+      atBottom = isAtBottom();
+      //up arrow pressed
+      if(!atTop) {
+        translateUp(animationDiv);
+        applyParallax('up');
+        throttleAnimation();
+      }
+    }
+  });
+
+  $('body').on('swipeup',function(){
+    if(animationEnabled) {
+      atTop = isAtTop();
+      atBottom = isAtBottom();
+      if(!atBottom) {
+        translateDown(animationDiv);
+        applyParallax('down');
+        throttleAnimation();
+      }
+    }
   });
   //-----------------------------------------
 
