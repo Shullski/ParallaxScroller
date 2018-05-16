@@ -103,12 +103,14 @@ $(document).ready(function(){
   //------ SCROLL WEEL FUNCTIONALITY --------
   $(window).bind('mousewheel DOMMouseScroll', function(event){
     if(animationEnabled){
-      if (event.originalEvent.wheelDelta >= 0 && !atTop) {
+      //Firefox compatibility, .wheelDelta vs .detail
+      var delta = (event.detail == 0) ? event.originalEvent.wheelDelta : -event.detail;
+      if (delta >= 0 && !atTop) {
         translateUp(animationDiv);
         applyParallax('up');
         throttleAnimation();
       }
-      else if(event.originalEvent.wheelDelta < 0 && !atBottom)  {
+      else if(delta < 0 && !atBottom)  {
         translateDown(animationDiv);
         applyParallax('down');
         throttleAnimation();
