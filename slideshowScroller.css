@@ -9,8 +9,8 @@ body {
 }
 
 .upArrowContainer {
-  height:45px;
-  width:45px;
+  height:50px;
+  width:50px;
   position:fixed;
   top:2%;
   left:50%;
@@ -63,9 +63,13 @@ h1 {
   transition:transform 1s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-.parallaxAbove { transform: translate(50%, -250%); }
-.parallaxUnder { transform: translate(50%, 350%); }
+.parallaxAbove { transform: translate(50%, -200%); }
+.parallaxUnder { transform: translate(50%, 300%); }
+/*
+.parallaxAbove { transform: translate(50%, calc(50% - 200px)); }
+.parallaxUnder { transform: translate(50%, calc(50% + 200px)); } */
 
+/* FIRST SECTION */
 .first {
   background-image:url('images/stairway.jpg');
   background-size: cover;
@@ -80,11 +84,21 @@ h1 {
   background-color:darkkhaki;
   opacity:0.35;
 }
+.first.mobile {
+  background-image:url('textures/cloudy-day.png');
+  background-size:auto;
+  background-repeat: repeat;
+}
+.mobile.first::after {
+  opacity:0;
+}
+/* ---------------- */
 
+/* SECOND SECTION */
 .second {
   background-image:url('images/island.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size:cover;
+  background-position:center;
 }
 .second::after{
   display:block;
@@ -95,7 +109,17 @@ h1 {
   background-color:lightblue;
   opacity:0.35;
 }
+.second.mobile {
+  background-image:url('textures/sakura.png');
+  background-size:auto;
+  background-repeat: repeat;
+}
+.mobile.second::after {
+  opacity:0;
+}
+/* ---------------- */
 
+/* THIRD SECTION */
 .third {
   background-image:url('images/view.jpg');
   background-size: cover;
@@ -110,7 +134,17 @@ h1 {
   background-color:darkkhaki;
   opacity:0.35;
 }
+.third.mobile {
+  background-image:url('textures/restaurant.png');
+  background-size:auto;
+  background-repeat: repeat;
+}
+.mobile.third::after {
+  opacity:0;
+}
+/* ---------------- */
 
+/* FOURTH SECTION */
 .fourth {
   background-image:url('images/sky.jpg');
   background-size: cover;
@@ -125,3 +159,12 @@ h1 {
   background-color:lightskyblue;
   opacity:0.35;
 }
+.fourth.mobile {
+  background-image:url('textures/congruent_pentagon.png');
+  background-size:auto;
+  background-repeat: repeat;
+}
+.mobile.fourth::after {
+  opacity:0;
+}
+/* ---------------- */
