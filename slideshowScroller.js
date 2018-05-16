@@ -3,11 +3,22 @@ var currentTranslate = 0;
 //Timer for disableing animation
 var animationEnabled = true;
 //Prevent scrolling into emptiness
-var atTop;
-var atBottom;
+var atTop = true;
+var atBottom = false;
 //For parallax transitions
 var currentSection = 1;
 var previousSection;
+
+function updateIcon(icon){
+  if (icon == 'up') {
+    if(atTop) icon.fadeOut(fast);
+    else icon.fadeIn(fast);
+  }
+  else if (icon == 'down') {
+    if(atBottom) icon.fadeOut(fast);
+    else icon.fadeIn(fast);
+  }
+}
 
 function isAtTop() {
   if(currentTranslate == 0) {
@@ -64,13 +75,13 @@ function translateDown(element) {
 
 $(document).ready(function(){
   animationDiv = $('.container');
+  //icons
+  var up = $('.upArrowContainer');
+  var down = $('.downArrowContainer');
 
   //------ SCROLL WEEL FUNCTIONALITY --------
   $(window).bind('mousewheel DOMMouseScroll', function(event){
     if(animationEnabled){
-      atTop = isAtTop();
-      atBottom = isAtBottom();
-
       if (event.originalEvent.wheelDelta >= 0 && !atTop) {
         translateUp(animationDiv);
         applyParallax('up');
@@ -81,16 +92,21 @@ $(document).ready(function(){
         applyParallax('down');
         throttleAnimation();
       }
+
+      atTop = isAtTop();
+      atBottom = isAtBottom();
+      if(atTop) up.fadeOut('fast');
+      else up.fadeIn('fast');
+      if(atBottom) down.fadeOut('fast');
+      else down.fadeIn('fast');
+
     }
   });
   //-----------------------------------------
 
   //------ KEYBOARD ARROW FUNCTIONALITY -----
-
   $('body').on( "keydown", function( event ) {
     if(animationEnabled) {
-      atTop = isAtTop();
-      atBottom = isAtBottom();
       //up arrow pressed
       if(event.which == 38 && !atTop) {
         translateUp(animationDiv);
@@ -103,35 +119,47 @@ $(document).ready(function(){
         applyParallax('down');
         throttleAnimation();
       }
+      atTop = isAtTop();
+      atBottom = isAtBottom();
+      if(atTop) up.fadeOut('fast');
+      else up.fadeIn('fast');
+      if(atBottom) down.fadeOut('fast');
+      else down.fadeIn('fast');
     }
   });
   //-----------------------------------------
 
-  //---------- MOBILE DEVICES ---------------
-  $('body').on('swipedown',function(){
+  //---------- ARROW BUTTOMS ----------------
+  $('.upArrowContainer').click(function(){
     if(animationEnabled) {
-      atTop = isAtTop();
-      atBottom = isAtBottom();
-      //up arrow pressed
       if(!atTop) {
         translateUp(animationDiv);
         applyParallax('up');
         throttleAnimation();
       }
+      atTop = isAtTop();
+      atBottom = isAtBottom();
+      if(atTop) up.fadeOut('fast');
+      else up.fadeIn('fast');
+      if(atBottom) down.fadeOut('fast');
+      else down.fadeIn('fast');
     }
   });
 
-  $('body').on('swipeup',function(){
+  $('.downArrowContainer').click(function(){
     if(animationEnabled) {
-      atTop = isAtTop();
-      atBottom = isAtBottom();
       if(!atBottom) {
         translateDown(animationDiv);
         applyParallax('down');
         throttleAnimation();
       }
+      atTop = isAtTop();
+      atBottom = isAtBottom();
+      if(atTop) up.fadeOut('fast');
+      else up.fadeIn('fast');
+      if(atBottom) down.fadeOut('fast');
+      else down.fadeIn('fast');
     }
   });
   //-----------------------------------------
-
 });
