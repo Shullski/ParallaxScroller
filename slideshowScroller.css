@@ -1,0 +1,101 @@
+* {box-sizing: border-box;}
+
+body {
+  margin:0;
+  padding:0;
+  height:100vh;
+  width:100vw;
+  overflow:hidden;
+}
+
+.container {
+  position:relative;
+  transition:transform 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+  height:100vh;
+  width:100vw;
+}
+
+.section {
+  height:100%;
+  position:relative;
+  /* Prevent parallax from spilling over */
+  overflow:hidden;
+}
+
+h1 {
+  font-size:4.5vw;
+  color:rgba(255,255,255,0.8);
+  font-family: 'roboto', sans-serif;
+  margin:0; padding:0;
+  bottom:50%; right:50%;
+  transform: translate(50%,50%);
+  position:absolute;
+  width:100%;
+  text-align: center;
+  z-index: 100;
+  text-transform: uppercase;
+  transition:transform 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.parallaxAbove { transform: translate(50%, -250%); }
+.parallaxUnder { transform: translate(50%, 350%); }
+
+.first {
+  background-image:url('images/stairway.jpg');
+  background-size: cover;
+  background-position:center;
+}
+.first::after{
+  display:block;
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  height:100%; width:100%;
+  background-color:darkkhaki;
+  opacity:0.35;
+}
+
+.second {
+  background-image:url('images/island.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.second::after{
+  display:block;
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  height:100%; width:100%;
+  background-color:lightblue;
+  opacity:0.35;
+}
+
+.third {
+  background-image:url('images/view.jpg');
+  background-size: cover;
+  background-position: top;
+}
+.third::after{
+  display:block;
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  height:100%; width:100%;
+  background-color:darkkhaki;
+  opacity:0.35;
+}
+
+.fourth {
+  background-image:url('images/sky.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.fourth::after{
+  display:block;
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  height:100%; width:100%;
+  background-color:lightskyblue;
+  opacity:0.35;
+}
