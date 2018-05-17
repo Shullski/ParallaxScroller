@@ -5,9 +5,32 @@ body {
   padding:0;
   height:100vh;
   width:100vw;
-  /* overflow:hidden; */
+  background-color:BlanchedAlmond ;
 }
 
+/* load screen ---------*/
+.loadContainer {
+  display:block;
+  position:absolute;
+  color:rgb(100,100,100);
+  font-family: 'Amatic SC', sans-serif;
+  top:50%;left:50%;
+  transform:translate(-50%, -50%);
+  user-select: none;
+  font-size:6vw;
+}
+.smiley {
+  display:block;
+  text-align:center;
+
+}
+.loading {
+  display:block;
+  text-align:center;
+}
+/* --------------------------*/
+
+/* material design icons ----*/
 .upArrowContainer {
   position:fixed;
   cursor:pointer;
@@ -42,18 +65,17 @@ body {
 }
 .material-icons.md-48:active {font-size:42px; color:rgb(200,200,200);}
 .material-icons.md-48:hover {color:white;}
+/* ======================----*/
 
-img {
-  max-height:100%;
-  max-width: 100%;
-}
-
+/* wraps entire page ----*/
 .window {
   position:relative;
   width:100vw;
   height:100vh;
   overflow:hidden;
+  display:none;
 }
+
 .container {
   position:relative;
   transition:transform 1s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -67,6 +89,7 @@ img {
   /* Prevent parallax from spilling over */
   overflow:hidden;
 }
+
 h1 {
   font-size:7vw;
   color:rgba(255,255,255,0.8);
@@ -81,7 +104,7 @@ h1 {
   text-transform: uppercase;
   transition:transform 1s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-span {
+.small {
   font-size:6vw;
   text-transform: lowercase;
   font-weight: 100;

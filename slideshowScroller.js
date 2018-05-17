@@ -25,17 +25,6 @@ function isMobile() {
   }
 }
 
-function updateIcon(icon){
-  if (icon == 'up') {
-    if(atTop) icon.fadeOut(fast);
-    else icon.fadeIn(fast);
-  }
-  else if (icon == 'down') {
-    if(atBottom) icon.fadeOut(fast);
-    else icon.fadeIn(fast);
-  }
-}
-
 function isAtTop() {
   if(currentTranslate == 0) {
     return true;
@@ -88,6 +77,10 @@ function translateDown(element) {
   currentTranslate = currentTranslate - animateTranslate;
 }
 //-----------------------------------
+$(window).bind("load", function() {
+  $('.loadContainer').delay(200).fadeOut(1000);
+  $('.window').fadeIn(2000);
+});
 
 $(document).ready(function(){
   if(isMobile()){
