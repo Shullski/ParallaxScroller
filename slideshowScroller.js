@@ -118,11 +118,8 @@ $(document).ready(function(){
 
       atTop = isAtTop();
       atBottom = isAtBottom();
-      if(atTop) up.fadeOut('fast');
-      else up.fadeIn('fast');
-      if(atBottom) down.fadeOut('fast');
-      else down.fadeIn('fast');
-
+      if(atTop) up.addClass('slideUp'); else up.removeClass('slideUp');
+      if(atBottom) down.addClass('slideDown'); else down.removeClass('slideDown');
     }
   });
   //-----------------------------------------
@@ -144,10 +141,8 @@ $(document).ready(function(){
       }
       atTop = isAtTop();
       atBottom = isAtBottom();
-      if(atTop) up.fadeOut('fast');
-      else up.fadeIn('fast');
-      if(atBottom) down.fadeOut('fast');
-      else down.fadeIn('fast');
+      if(atTop) up.addClass('slideUp'); else up.removeClass('slideUp');
+      if(atBottom) down.addClass('slideDown'); else down.removeClass('slideDown');
     }
   });
   //-----------------------------------------
@@ -162,10 +157,8 @@ $(document).ready(function(){
       }
       atTop = isAtTop();
       atBottom = isAtBottom();
-      if(atTop) up.fadeOut('fast');
-      else up.fadeIn('fast');
-      if(atBottom) down.fadeOut('fast');
-      else down.fadeIn('fast');
+      if(atTop) up.addClass('slideUp'); else up.removeClass('slideUp');
+      if(atBottom) down.addClass('slideDown'); else down.removeClass('slideDown');
     }
   });
 
@@ -178,10 +171,8 @@ $(document).ready(function(){
       }
       atTop = isAtTop();
       atBottom = isAtBottom();
-      if(atTop) up.fadeOut('fast');
-      else up.fadeIn('fast');
-      if(atBottom) down.fadeOut('fast');
-      else down.fadeIn('fast');
+      if(atTop) up.addClass('slideUp'); else up.removeClass('slideUp');
+      if(atBottom) down.addClass('slideDown'); else down.removeClass('slideDown');
     }
   });
   //-----------------------------------------
