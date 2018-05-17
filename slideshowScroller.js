@@ -78,8 +78,8 @@ function translateDown(element) {
 }
 //-----------------------------------
 $(window).bind("load", function() {
-  $('.loadContainer').delay(200).fadeOut(1000);
-  $('.window').fadeIn(2000);
+  $('.loadContainer').delay(1000).fadeOut(2000);
+  $('.window').delay(1000).fadeIn(2000);
 });
 
 $(document).ready(function(){
