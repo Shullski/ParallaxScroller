@@ -34,7 +34,12 @@ body {
   transform: translate(-50%, 100%);
 }
 
-.material-icons.md-48 {font-size:48px; color:rgba(255, 255, 255, 0.8); transition: 0.2s;}
+.material-icons.md-48 {
+  font-size:48px;
+  color:rgba(255, 255, 255, 0.8);
+  transition: 0.2s;
+  user-select: none;
+}
 .material-icons.md-48:active {font-size:42px; color:rgb(200,200,200);}
 .material-icons.md-48:hover {color:white;}
 
@@ -62,11 +67,10 @@ img {
   /* Prevent parallax from spilling over */
   overflow:hidden;
 }
-
 h1 {
-  font-size:4.5vw;
+  font-size:7vw;
   color:rgba(255,255,255,0.8);
-  font-family: 'roboto', sans-serif;
+  font-family: 'Amatic SC', sans-serif;
   margin:0; padding:0;
   bottom:50%; right:50%;
   transform: translate(50%,50%);
@@ -77,12 +81,14 @@ h1 {
   text-transform: uppercase;
   transition:transform 1s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
+span {
+  font-size:6vw;
+  text-transform: lowercase;
+  font-weight: 100;
+}
 
-.parallaxAbove { transform: translate(50%, -200%); }
-.parallaxUnder { transform: translate(50%, 300%); }
-/*
 .parallaxAbove { transform: translate(50%, calc(50% - 200px)); }
-.parallaxUnder { transform: translate(50%, calc(50% + 200px)); } */
+.parallaxUnder { transform: translate(50%, calc(50% + 200px)); }
 
 /* FIRST SECTION */
 .first {
